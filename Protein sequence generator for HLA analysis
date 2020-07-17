@@ -1,0 +1,21 @@
+# protein sequence - insert within quotation marks
+ps = ""
+
+ps = ps.replace(" ", "")
+
+hgvsplist = "" #copy and paste mutant hgvsp notations within the quotation marks with space in between 
+hgvsps = hgvsplist.split(" ")
+
+compornon = "" #Comp for complementary or Noncomp for noncomplementary 
+
+caseid = "" #insert case ID
+
+final = []
+
+for hgvsp in hgvsps:
+    mutantpos = int(hgvsp[3:-1])
+    start = mutantpos - 8
+    end = mutantpos + 8
+    sequence = ps[start-1:end]
+    newaa = hgvsp[-1]
+    sequence = sequence[:8] + newaa + sequence[9:]
